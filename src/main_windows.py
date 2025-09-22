@@ -1,3 +1,5 @@
+import datetime
+
 from PyQt6.QtWidgets import QHBoxLayout, QLineEdit, QMainWindow, QPushButton, QTextEdit, QVBoxLayout, QWidget
 
 
@@ -10,6 +12,7 @@ class MainWindow(QMainWindow):
 
         self.line_edit = QLineEdit()  # Zone de saisie du message
         self.push_button = QPushButton("Envoyer le message")  # Bouton pour envoyer le message
+        self.push_button.clicked.connect(self.on_click_push_button)
 
         self.input_message_layout = QHBoxLayout()  # creation zone horizontal
         self.input_message_layout.addWidget(self.line_edit)  # ajout zone de saisie
@@ -25,3 +28,8 @@ class MainWindow(QMainWindow):
 
         # Zone de de chat   |    button (envoyer le message)
         # Zone d'affichage des messages
+
+    def on_click_push_button(self) -> None:
+        date_now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.text_edit.append(f"{date_now} : {self.line_edit.text()}")
+        self.line_edit.clear()
