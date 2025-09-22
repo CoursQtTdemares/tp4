@@ -11,4 +11,6 @@ ICONS_FILE_PATH = WORKSPACE_DIR / "bonhomme-de-neige.png"
 
 STYLES_FILE_PATH = WORKSPACE_DIR / "src" / "styles.css"
 
+MESSAGES_FILE_PATH = WORKSPACE_DIR / "src" / "messages.json"
+
 PARIS_TZ = ZoneInfo("Europe/Paris")
